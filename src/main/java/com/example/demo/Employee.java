@@ -1,24 +1,23 @@
 package com.example.demo;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.boot.context.properties.bind.Name;
 
-@Getter
-@Setter
+import javax.persistence.*;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Entity
+@Table(schema ="information_schema", name = "employee")
 public class Employee {
-    private int id;
+
+    @Id
+    private Long id;
     private String name;
     private int salary;
-
-    public Employee() {
-
-    }
-
-    public Employee(int id, String name, int salary) {
-        this.id = id;
-        this.name = name;
-        this.salary = salary;
-    }
 
 
 }
