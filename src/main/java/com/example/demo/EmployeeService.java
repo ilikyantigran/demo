@@ -14,6 +14,7 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
+    //todo findById возвращает Optional, его нужно обрабатывать через orElseThrow потому что если ничего не найдется, нужно сигнализировать пользователю
     public Employee findEmployeeById(Long id){
         return employeeRepository.findById(id).get();
     }
@@ -26,6 +27,7 @@ public class EmployeeService {
         employeeRepository.deleteById(id);
     }
 
+    //todo опечатка
     public Employee saveChangedEmloyee(Employee employee){
         return employeeRepository.save(employee);
     }

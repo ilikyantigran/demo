@@ -14,6 +14,7 @@ import javax.persistence.*;
 @Table(schema ="information_schema", name = "employee")
 public class Employee {
 
+    //todo id нужно инкрементить через @SequenceGenerator(), смотри в fccr
     @Id
     private Long id;
     private String name;
