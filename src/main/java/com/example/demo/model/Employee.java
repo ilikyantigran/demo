@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Data //todo тут идея подсказывает, что использовать данную аннотацию не оч хорошо
 @Entity
 @Table(schema = "information_schema", name = "employee")
 @SequenceGenerator(schema = "information_schema", name = "employee_s", sequenceName = "information_schema.employee_s", allocationSize = 1)
