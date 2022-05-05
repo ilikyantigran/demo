@@ -5,7 +5,7 @@ import com.example.demo.model.Employee;
 
 import java.util.List;
 
-public interface EmployeeInterface {
+public interface EmployeeInterface { //todo плохое название. Лучше EmployeeService, а имплементацию EmployeeServiceImpl или DefaultEmployeeService
 
     Employee updateSalary(int id, int salary) throws IdNotFoundException;
 

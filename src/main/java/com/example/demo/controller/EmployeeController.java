@@ -13,8 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor()
 public class EmployeeController {
 
-    private static final String SUCCESS_MESSAGE = "success"; //todo у констат другой стиль именования
-                                                             // done
+    private static final String SUCCESS_MESSAGE = "success";
     private final EmployeeInterface employeeInterface;
 
     @GetMapping("/findAll")

@@ -14,9 +14,7 @@ import static java.lang.Integer.parseInt;
 
 
 @Service
-public class EmployeeService implements EmployeeInterface { //todo какой то метод не имплементировал
-                                                            // done вроде. Был метод, который я закомментил и не использовал. Сейчас вроде юзаю 4 из 4, которые
-                                                            // были в EmployeeInterface
+public class EmployeeService implements EmployeeInterface {
     private final EmployeeRepository employeeRepository;
     private final MessageService messageService;
 
@@ -26,10 +24,6 @@ public class EmployeeService implements EmployeeInterface { //todo какой т
         this.employeeRepository = employeeRepository;
         this.messageService = messageService;
     }
-
-    //todo не оставляй закоменченный код)
-    // done
-
 
     @Override
     public List<Employee> findAll() {
@@ -58,8 +52,6 @@ public class EmployeeService implements EmployeeInterface { //todo какой т
     }
 
     private Supplier<IdNotFoundException> getNotFoundIdException(int id) {
-        //todo IllegalArgumentException - тоже Runtime. Создай свое исключение от Exception
-        // done
         return () -> new IdNotFoundException(messageService.getMessage("id.not.found.exception", id));
     }
 }
