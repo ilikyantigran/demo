@@ -1,14 +1,14 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data //todo тут идея подсказывает, что использовать данную аннотацию не оч хорошо
+//todo тут идея подсказывает, что использовать данную аннотацию не оч хорошо // done
+@Getter
+@Setter
 @Entity
 @Table(schema = "information_schema", name = "employee")
 @SequenceGenerator(schema = "information_schema", name = "employee_s", sequenceName = "information_schema.employee_s", allocationSize = 1)
