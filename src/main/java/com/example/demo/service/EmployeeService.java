@@ -13,7 +13,8 @@ import java.util.function.Supplier;
 
 import static java.lang.Integer.parseInt;
 
-//todo обращения к сервисам лучше производить через интерфейсы // done
+//todo обращения к сервисам лучше производить через интерфейсы
+// done
 @Service
 public class EmployeeService implements EmployeeInterface {
     private final EmployeeRepository employeeRepository;
@@ -28,50 +29,61 @@ public class EmployeeService implements EmployeeInterface {
 
     //todo общие замечание
     //  русские слова в коде плохая практика
-    // необходимо использовать ResourceBundle. Можно посмотреть, как сделать в fccr, сервис называется MessageService // done
+    // необходимо использовать ResourceBundle. Можно посмотреть, как сделать в fccr, сервис называется MessageService
+    // done
 
-    //todo зачем приписывать к каждому методу Employee, если в названии сервиса есть)) // done
-    @Override
-    public Employee findById(int id) { //todo не используется
-        //todo почему RuntimeException ? Не лучше ли использовать Checked Exception ? // done
-        return employeeRepository.findById(id).orElseThrow(getNotFoundIdExeption(id));
-    }
+    //todo зачем приписывать к каждому методу Employee, если в названии сервиса есть))
+    // done
+//    @Override
+//    public Employee findById(int id) { //todo не используется
+//                                       // done
+//        //todo почему RuntimeException ? Не лучше ли использовать Checked Exception ?
+//        // done
+//        return employeeRepository.findById(id).orElseThrow(getNotFoundIdExeption(id));
+//    }
 
 
-    //todo зачем приписывать к каждому методу Employee, если в названии сервиса есть)) // done
+    //todo зачем приписывать к каждому методу Employee, если в названии сервиса есть))
+    // done
     @Override
     public List<Employee> findAll() {
         return employeeRepository.findAll();
     }
 
-    //todo зачем приписывать к каждому методу Employee, если в названии сервиса есть)) // done
+    //todo зачем приписывать к каждому методу Employee, если в названии сервиса есть))
+    // done
     @Override
     public void deleteById(String id) {
         employeeRepository.findById(parseInt(id))
-                .orElseThrow(getNotFoundIdExeption(parseInt(id)));
+                .orElseThrow(getNotFoundIdException(parseInt(id)));
         employeeRepository.deleteById(parseInt(id));
     }
 
-    //todo зачем приписывать к каждому методу Employee, если в названии сервиса есть)) // done
+    //todo зачем приписывать к каждому методу Employee, если в названии сервиса есть))
+    // done
     @Override
     public Employee save(Employee employee) {
         return employeeRepository.save(employee);
     }
 
     //todo название ни оч, лучше update. ++ Тут в методе происходит, что то странное. Название метода говорит,
-    // что сохраняет измененного работника, а на деле только изменение его зп // done
+    // что сохраняет измененного работника, а на деле только изменение его зп
+    // done
     @Override
     public Employee updateSalary(int id, int salary) {
-        //todo почему RuntimeException ? Не лучше ли использовать Checked Exception ? + переноси строки // done
-        // в скобках findById происходит проверка, такие вещи нужно выносить отдельно, так как не очевидно с первого раза, что происходит // done
-        // название переменной не оч) // done
+        //todo почему RuntimeException ? Не лучше ли использовать Checked Exception ? + переноси строки
+        // done
+        // в скобках findById происходит проверка, такие вещи нужно выносить отдельно, так как не очевидно с первого раза, что происходит
+        // done
+        // название переменной не оч)
+        // done
         Employee updatedEmployee = employeeRepository.findById(id)
-                .orElseThrow(getNotFoundIdExeption(id));
+                .orElseThrow(getNotFoundIdException(id));
         updatedEmployee.setSalary(salary);
         return employeeRepository.save(updatedEmployee);
     }
 
-    private Supplier<IllegalArgumentException> getNotFoundIdExeption(int id) {
+    private Supplier<IllegalArgumentException> getNotFoundIdException(int id) {
         return () -> new IllegalArgumentException(messageService.getMessage("id.not.found.exceprion", id));
     }
 }

@@ -5,7 +5,7 @@ import com.example.demo.model.Employee;
 import java.util.List;
 
 public interface EmployeeInterface {
-    Employee findById(int id);
+//    Employee findById(int id);
 
     Employee updateSalary(int id, int salary);
 
