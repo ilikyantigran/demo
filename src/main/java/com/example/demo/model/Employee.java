@@ -6,8 +6,6 @@ import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-//todo тут идея подсказывает, что использовать данную аннотацию не оч хорошо
-// done
 @Getter
 @Setter
 @Entity
@@ -25,6 +23,4 @@ public class Employee {
 
     @Column(name = "salary")
     private int salary;
-
-
 }
